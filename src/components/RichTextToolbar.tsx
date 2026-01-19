@@ -1,7 +1,7 @@
 import { Bold, Italic, Underline, List, ListOrdered, Highlighter, Link, Image, Mic, Save } from 'lucide-react';
 import { Button } from './ui/button';
 import { Separator } from './ui/separator';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 interface RichTextToolbarProps {
   isAutoSaving?: boolean;
