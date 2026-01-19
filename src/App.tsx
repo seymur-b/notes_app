@@ -35,7 +35,7 @@ export default function App() {
   const [selectedNoteId, setSelectedNoteId] = useState<string | null>(null);
   const [editingNoteId, setEditingNoteId] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<ViewMode>('grid');
-  const [theme, setTheme] = useState<'light' | 'dark' | 'system'>('system');
+  const [theme, setTheme] = useState<string | null>(localStorage.getItem('theme') ?? 'system');
   const [searchQuery, setSearchQuery] = useState('');
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -51,7 +51,7 @@ export default function App() {
   useEffect(() => {
     const root = document.documentElement;
     root.classList.remove('light', 'dark');
-
+    localStorage.setItem('theme', theme || 'system');
     if (theme === 'system') {
       root.classList.add(
         window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
